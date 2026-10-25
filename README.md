@@ -6,7 +6,7 @@
 
 <p align="center">
   A PowerPoint add-in that adds a ribbon tab to align, match size and swap shapes in one click.<br>
-  Works in PowerPoint for Windows and Mac, in English and Arabic.
+  Works in PowerPoint for Windows and Mac, including Office LTSC, in English and Arabic.
 </p>
 
 <p align="center">
@@ -33,16 +33,27 @@ Every Nasaq command uses the **last shape you select** as the reference, so you 
 
 The ribbon labels, tooltips and messages appear in Arabic when Office is set to Arabic, and in English otherwise.
 
-### Requirements
+### Which edition do I need?
 
-- PowerPoint for Microsoft 365 on Windows or Mac (the add-in needs PowerPoint API 1.5).
-- An internet connection: like all Office web add-ins, Nasaq loads its code from GitHub Pages when you use it.
+Nasaq comes in two editions with the same tab and buttons:
+
+| | **Nasaq** (web add-in) | **Nasaq Classic** (`.ppam`) |
+|---|---|---|
+| **For** | PowerPoint for Microsoft 365 (Windows, Mac, web) and Office LTSC 2024 | Office LTSC 2021, 2019 and 2016 on Windows |
+| **Macros** | Not used: never asks to enable macros | VBA: the installer puts it in a trusted folder, so it normally loads without a prompt |
+| **Internet** | Needed: loads from GitHub Pages | Not needed: works fully offline |
+| **Updates** | Automatic | Run the installer again |
+| **Arabic labels** | Windows and Mac | Windows (English on Mac) |
+
+**Not sure which PowerPoint you have?** Go to **File → Account → About PowerPoint**.
+If it says *Microsoft 365*, or *LTSC* with version 2408 or later, use **Nasaq**. If it says *LTSC* with version 2108, *2019* or *2016*, use **Nasaq Classic**.
+(Nasaq needs PowerPoint JavaScript API 1.5, which older perpetual versions don't have.)
 
 ### Install
 
-#### Easy install (one file)
+All installers are in the [latest release](https://github.com/AbuMunirah/nasaq/releases/latest) and need no admin rights.
 
-Download the installer for your computer from the [latest release](https://github.com/AbuMunirah/nasaq/releases/latest) and run it. No admin rights are needed.
+#### Nasaq (web add-in)
 
 **Mac:** download `Nasaq-Installer-Mac.zip`, unzip it and double-click `install-mac.command`.
 If macOS says it can't verify the developer, open **System Settings → Privacy & Security** and click **Open Anyway**.
@@ -55,27 +66,30 @@ curl -fsSL https://abumunirah.github.io/nasaq/install/install-mac.command | bash
 **Windows:** download `Nasaq-Installer-Windows.cmd` and double-click it.
 If Windows shows "Windows protected your PC", click **More info → Run anyway**.
 
-Then restart PowerPoint and choose **Home → Add-ins → My Add-ins → Developer Add-ins → Nasaq**.
-To remove Nasaq, run the installer with `--uninstall` (Mac) or `/uninstall` (Windows).
+Then restart PowerPoint and choose **Home → Add-ins → My Add-ins → Developer Add-ins → Nasaq**
+(on Office LTSC 2024: **Insert → My Add-ins**).
 
-#### Manual install
+**For an organization:** a Microsoft 365 admin can deploy it to everyone instead: upload
+[`manifest.xml`](https://abumunirah.github.io/nasaq/manifest.xml) in the [Microsoft 365 admin center](https://admin.microsoft.com)
+under **Settings → Integrated apps → Upload custom apps**. Nothing needs to be installed on users' machines.
 
-The add-in is defined by one file, the manifest:
-**https://abumunirah.github.io/nasaq/manifest.xml**
+#### Nasaq Classic (Windows, older PowerPoint)
 
-**For an organization (recommended).** A Microsoft 365 admin uploads the manifest in the
-[Microsoft 365 admin center](https://admin.microsoft.com) under **Settings → Integrated apps → Upload custom apps**.
-The Nasaq tab then appears for the chosen users in every presentation, with nothing to install on their machines.
+Close PowerPoint, then download `Nasaq-Classic-Installer-Windows.cmd` and double-click it.
+If Windows shows "Windows protected your PC", click **More info → Run anyway**.
+Open PowerPoint: the Nasaq tab appears and loads automatically from then on.
 
-**For yourself, on Mac**
-1. Download `manifest.xml` from the link above.
-2. Copy it to `~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef/` (create the `wef` folder if it doesn't exist).
-3. Restart PowerPoint, then choose **Home → Add-ins → My Add-ins → Developer Add-ins → Nasaq**.
+The installer copies the add-in into PowerPoint's user add-ins folder (`%APPDATA%\Microsoft\AddIns`), which Office trusts by default,
+so there is no macro prompt. It doesn't change any security settings. If your organization has disabled trusted locations or VBA,
+the installer says so; ask your IT team to allow the add-in.
 
-**For yourself, on Windows**
-1. Put `manifest.xml` in a shared network folder.
-2. In PowerPoint, go to **File → Options → Trust Center → Trust Center Settings → Trusted Add-in Catalogs**, add the folder's network path and tick **Show in Menu**.
-3. Restart PowerPoint, then choose **Home → Add-ins → My Add-ins → Shared Folder → Nasaq**.
+**Manual install:** download `Nasaq-Classic.ppam`, right-click it → **Properties** → tick **Unblock** → **OK**.
+In PowerPoint, go to **File → Options → Add-ins**, set **Manage** to **PowerPoint Add-ins**, click **Go… → Add New…**,
+select the file and choose **Enable Macros**.
+
+#### Uninstall
+
+Run the same installer with `--uninstall` (Mac) or `/uninstall` (Windows), for example `install-windows-classic.cmd /uninstall`.
 
 ### Privacy
 
@@ -102,9 +116,19 @@ npm run validate # checks manifest.xml
 | `src/commands/strings.ts` | English and Arabic messages |
 | `src/message/` | Dialog used to show messages |
 | `assets/` | Icons |
+| `ppam/` | Nasaq Classic: VBA template, ribbon (`customUI14.xml`) and build script |
+| `install/` | Installers for Mac and Windows |
 
 Every push to `main` builds the add-in and publishes it to GitHub Pages
 (see [`.github/workflows/pages.yml`](.github/workflows/pages.yml)).
+
+**Nasaq Classic** lives in [`ppam/`](ppam). Its labels are generated from `manifest.xml`, so both editions stay in sync:
+
+1. `python3 ppam/build.py vba` writes `ppam/out/Nasaq.bas`.
+2. In PowerPoint, import `Nasaq.bas` into a blank presentation's VBA project (**Debug → Compile** to check it),
+   then save it as a macro-enabled presentation (`.pptm`).
+3. `python3 ppam/build.py ppam path/to/saved.pptm` writes `ppam/out/Nasaq.ppam` with the ribbon and icons added
+   (and the author name cleared). Copy it to `ppam/Nasaq.ppam` to publish it.
 
 ### License
 
@@ -134,16 +158,26 @@ Every push to `main` builds the add-in and publishes it to GitHub Pages
 
 تظهر تسميات الشريط والتلميحات والرسائل باللغة العربية عندما تكون لغة Office هي العربية، وبالإنجليزية في غير ذلك.
 
-### المتطلبات
+### أي إصدار أحتاج؟
 
-- PowerPoint ضمن Microsoft 365 على Windows أو Mac.
-- اتصال بالإنترنت: مثل جميع إضافات Office المبنية على الويب، تحمّل نَسَق شيفرتها من GitHub Pages عند استخدامها.
+يتوفر نَسَق بإصدارين بنفس علامة التبويب والأزرار:
+
+| | **نَسَق** (إضافة ويب) | **نَسَق الكلاسيكي** (`.ppam`) |
+|---|---|---|
+| **مناسب لـ** | PowerPoint ضمن Microsoft 365 (Windows وMac والويب) وOffice LTSC 2024 | Office LTSC 2021 و2019 و2016 على Windows |
+| **وحدات الماكرو** | لا يستخدمها: لا يطلب تمكين وحدات الماكرو أبدًا | VBA: يضعه المثبّت في مجلد موثوق، فيُحمَّل عادةً دون أي تنبيه |
+| **الإنترنت** | مطلوب: يُحمَّل من GitHub Pages | غير مطلوب: يعمل دون اتصال بالكامل |
+| **التحديثات** | تلقائية | شغّل المثبّت مرة أخرى |
+| **الواجهة العربية** | Windows وMac | Windows (بالإنجليزية على Mac) |
+
+**لست متأكدًا من إصدار PowerPoint لديك؟** انتقل إلى **ملف ← الحساب ← حول PowerPoint**.
+إذا ظهر *Microsoft 365*، أو *LTSC* بالإصدار 2408 أو أحدث، فاستخدم **نَسَق**. وإذا ظهر *LTSC* بالإصدار 2108، أو *2019* أو *2016*، فاستخدم **نَسَق الكلاسيكي**.
 
 ### التثبيت
 
-#### التثبيت السهل (ملف واحد)
+جميع المثبّتات موجودة في [أحدث إصدار](https://github.com/AbuMunirah/nasaq/releases/latest)، ولا تحتاج إلى صلاحيات المسؤول.
 
-نزّل المثبّت المناسب لجهازك من [أحدث إصدار](https://github.com/AbuMunirah/nasaq/releases/latest) وشغّله. لا يلزم امتلاك صلاحيات المسؤول.
+#### نَسَق (إضافة ويب)
 
 **Mac:** نزّل `Nasaq-Installer-Mac.zip`، وفك ضغطه، ثم انقر نقرًا مزدوجًا على `install-mac.command`.
 إذا ظهرت رسالة بأن macOS لا يمكنه التحقق من المطوّر، افتح **إعدادات النظام ← الخصوصية والأمان** وانقر **فتح على أي حال**.
@@ -156,24 +190,30 @@ curl -fsSL https://abumunirah.github.io/nasaq/install/install-mac.command | bash
 **Windows:** نزّل `Nasaq-Installer-Windows.cmd` وانقر عليه نقرًا مزدوجًا.
 إذا ظهرت رسالة "Windows protected your PC"، انقر **More info ← Run anyway**.
 
-بعدها أعد تشغيل PowerPoint واختر **الصفحة الرئيسية ← الوظائف الإضافية ← وظائفي الإضافية ← وظائف المطوّر الإضافية ← نَسَق**.
+بعدها أعد تشغيل PowerPoint واختر **الصفحة الرئيسية ← الوظائف الإضافية ← وظائفي الإضافية ← وظائف المطوّر الإضافية ← نَسَق**
+(في Office LTSC 2024: **إدراج ← وظائفي الإضافية**).
 
-#### التثبيت اليدوي
+**للمؤسسات:** يمكن لمسؤول Microsoft 365 نشره للجميع بدلًا من ذلك، برفع ملف
+[`manifest.xml`](https://abumunirah.github.io/nasaq/manifest.xml) في [مركز إدارة Microsoft 365](https://admin.microsoft.com)
+عبر **الإعدادات ← التطبيقات المتكاملة ← رفع تطبيقات مخصصة**، دون تثبيت أي شيء على أجهزة المستخدمين.
 
-تُعرَّف الإضافة بملف واحد هو ملف البيان (manifest):
-**https://abumunirah.github.io/nasaq/manifest.xml**
+#### نَسَق الكلاسيكي (Windows، إصدارات PowerPoint الأقدم)
 
-**للمؤسسات (موصى به).** يرفع مسؤول Microsoft 365 ملف البيان من [مركز إدارة Microsoft 365](https://admin.microsoft.com) عبر **الإعدادات ← التطبيقات المتكاملة ← رفع تطبيقات مخصصة**. بعدها تظهر علامة التبويب نَسَق للمستخدمين المختارين في كل عرض تقديمي، دون تثبيت أي شيء على أجهزتهم.
+أغلق PowerPoint، ثم نزّل `Nasaq-Classic-Installer-Windows.cmd` وانقر عليه نقرًا مزدوجًا.
+إذا ظهرت رسالة "Windows protected your PC"، انقر **More info ← Run anyway**.
+افتح PowerPoint: ستظهر علامة التبويب نَسَق، وستُحمَّل تلقائيًا في كل مرة بعد ذلك.
 
-**للاستخدام الشخصي على Mac**
-1. نزّل ملف `manifest.xml` من الرابط أعلاه.
-2. انسخه إلى المجلد `~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef/` (أنشئ المجلد `wef` إن لم يكن موجودًا).
-3. أعد تشغيل PowerPoint، ثم اختر **الصفحة الرئيسية ← الوظائف الإضافية ← وظائفي الإضافية ← وظائف المطوّر الإضافية ← نَسَق**.
+ينسخ المثبّت الإضافة إلى مجلد الوظائف الإضافية للمستخدم (`%APPDATA%\Microsoft\AddIns`)، وهو مجلد يثق به Office افتراضيًا،
+لذلك لا يظهر تنبيه وحدات الماكرو. لا يغيّر المثبّت أي إعدادات أمان. إذا كانت مؤسستك قد عطّلت المواقع الموثوقة أو VBA،
+فسيُعلمك المثبّت بذلك؛ اطلب حينها من فريق تقنية المعلومات السماح بالإضافة.
 
-**للاستخدام الشخصي على Windows**
-1. ضع ملف `manifest.xml` في مجلد مشترك على الشبكة.
-2. في PowerPoint، انتقل إلى **ملف ← خيارات ← مركز التوثيق ← إعدادات مركز التوثيق ← كتالوجات الوظائف الإضافية الموثوقة**، وأضف مسار المجلد على الشبكة وفعّل **إظهار في القائمة**.
-3. أعد تشغيل PowerPoint، ثم اختر **الصفحة الرئيسية ← الوظائف الإضافية ← وظائفي الإضافية ← مجلد مشترك ← نَسَق**.
+**التثبيت اليدوي:** نزّل `Nasaq-Classic.ppam`، وانقر عليه بزر الماوس الأيمن ← **خصائص** ← فعّل **إلغاء الحظر** ← **موافق**.
+في PowerPoint، انتقل إلى **ملف ← خيارات ← الوظائف الإضافية**، واختر **PowerPoint Add-ins** من قائمة **إدارة**، وانقر **انتقال… ← إضافة جديد…**،
+ثم حدد الملف واختر **تمكين وحدات الماكرو**.
+
+#### إلغاء التثبيت
+
+شغّل المثبّت نفسه مع `--uninstall` (Mac) أو `/uninstall` (Windows)، مثلًا `install-windows-classic.cmd /uninstall`.
 
 ### الخصوصية
 

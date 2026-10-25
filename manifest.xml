@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>9f4a790a-ef14-41ef-8b0d-6c6ee8a906b2</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Nasaq</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Nasaq">
+    <Override Locale="ar-SA" Value="نَسَق"/>
+  </DisplayName>
+  <Description DefaultValue="Match size, swap and align selected shapes from a ribbon tab.">
+    <Override Locale="ar-SA" Value="مطابقة حجم الأشكال المحددة وتبديلها ومحاذاتها من علامة تبويب على الشريط."/>
+  </Description>
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png?v=6"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-64.png?v=6"/>
+  <SupportUrl DefaultValue="https://github.com/AbuMunirah/nasaq"/>
+  <Hosts>
+    <Host Name="Presentation"/>
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Presentation">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="GetStarted.Title"/>
+            <Description resid="GetStarted.Description"/>
+            <LearnMoreUrl resid="GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+          <FunctionFile resid="Commands.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="Nasaq.Tab">
+              <Group id="Nasaq.FontGroup">
+                <Label resid="FontGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="FontGroup.16"/>
+                  <bt:Image size="20" resid="FontGroup.20"/>
+                  <bt:Image size="24" resid="FontGroup.24"/>
+                  <bt:Image size="32" resid="FontGroup.32"/>
+                  <bt:Image size="40" resid="FontGroup.40"/>
+                  <bt:Image size="48" resid="FontGroup.48"/>
+                  <bt:Image size="64" resid="FontGroup.64"/>
+                  <bt:Image size="80" resid="FontGroup.80"/>
+                </Icon>
+                <!-- Built-in PowerPoint controls (AddinCommands 1.3). IDs from github.com/OfficeDev/office-control-ids -->
+                <OfficeControl id="Font"/>
+                <OfficeControl id="FontSize"/>
+              </Group>
+              <Group id="Nasaq.TextGroup">
+                <Label resid="TextGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="TextAlignLeft.16"/>
+                  <bt:Image size="20" resid="TextAlignLeft.20"/>
+                  <bt:Image size="24" resid="TextAlignLeft.24"/>
+                  <bt:Image size="32" resid="TextAlignLeft.32"/>
+                  <bt:Image size="40" resid="TextAlignLeft.40"/>
+                  <bt:Image size="48" resid="TextAlignLeft.48"/>
+                  <bt:Image size="64" resid="TextAlignLeft.64"/>
+                  <bt:Image size="80" resid="TextAlignLeft.80"/>
+                </Icon>
+                <Control xsi:type="Menu" id="Nasaq.TextAlignMenu">
+                  <Label resid="TextAlignMenu.Label"/>
+                  <Supertip>
+                    <Title resid="TextAlignMenu.Label"/>
+                    <Description resid="TextAlignMenu.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="TextAlignLeft.16"/>
+                    <bt:Image size="20" resid="TextAlignLeft.20"/>
+                    <bt:Image size="24" resid="TextAlignLeft.24"/>
+                    <bt:Image size="32" resid="TextAlignLeft.32"/>
+                    <bt:Image size="40" resid="TextAlignLeft.40"/>
+                    <bt:Image size="48" resid="TextAlignLeft.48"/>
+                    <bt:Image size="64" resid="TextAlignLeft.64"/>
+                    <bt:Image size="80" resid="TextAlignLeft.80"/>
+                  </Icon>
+                  <Items>
+                    <Item id="Nasaq.TextAlignLeft">
+                      <Label resid="TextAlignLeft.Label"/>
+                      <Supertip>
+                        <Title resid="TextAlignLeft.Label"/>
+                        <Description resid="TextAlignLeft.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="TextAlignLeft.16"/>
+                        <bt:Image size="20" resid="TextAlignLeft.20"/>
+                        <bt:Image size="24" resid="TextAlignLeft.24"/>
+                        <bt:Image size="32" resid="TextAlignLeft.32"/>
+                        <bt:Image size="40" resid="TextAlignLeft.40"/>
+                        <bt:Image size="48" resid="TextAlignLeft.48"/>
+                        <bt:Image size="64" resid="TextAlignLeft.64"/>
+                        <bt:Image size="80" resid="TextAlignLeft.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>textAlignLeft</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="Nasaq.TextAlignCenter">
+                      <Label resid="TextAlignCenter.Label"/>
+                      <Supertip>
+                        <Title resid="TextAlignCenter.Label"/>
+                        <Description resid="TextAlignCenter.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="TextAlignCenter.16"/>
+                        <bt:Image size="20" resid="TextAlignCenter.20"/>
+                        <bt:Image size="24" resid="TextAlignCenter.24"/>
+                        <bt:Image size="32" resid="TextAlignCenter.32"/>
+                        <bt:Image size="40" resid="TextAlignCenter.40"/>
+                        <bt:Image size="48" resid="TextAlignCenter.48"/>
+                        <bt:Image size="64" resid="TextAlignCenter.64"/>
+                        <bt:Image size="80" resid="TextAlignCenter.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>textAlignCenter</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="Nasaq.TextAlignRight">
+                      <Label resid="TextAlignRight.Label"/>
+                      <Supertip>
+                        <Title resid="TextAlignRight.Label"/>
+                        <Description resid="TextAlignRight.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="TextAlignRight.16"/>
+                        <bt:Image size="20" resid="TextAlignRight.20"/>
+                        <bt:Image size="24" resid="TextAlignRight.24"/>
+                        <bt:Image size="32" resid="TextAlignRight.32"/>
+                        <bt:Image size="40" resid="TextAlignRight.40"/>
+                        <bt:Image size="48" resid="TextAlignRight.48"/>
+                        <bt:Image size="64" resid="TextAlignRight.64"/>
+                        <bt:Image size="80" resid="TextAlignRight.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>textAlignRight</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="Nasaq.TextAlignJustify">
+                      <Label resid="TextAlignJustify.Label"/>
+                      <Supertip>
+                        <Title resid="TextAlignJustify.Label"/>
+                        <Description resid="TextAlignJustify.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="TextAlignJustify.16"/>
+                        <bt:Image size="20" resid="TextAlignJustify.20"/>
+                        <bt:Image size="24" resid="TextAlignJustify.24"/>
+                        <bt:Image size="32" resid="TextAlignJustify.32"/>
+                        <bt:Image size="40" resid="TextAlignJustify.40"/>
+                        <bt:Image size="48" resid="TextAlignJustify.48"/>
+                        <bt:Image size="64" resid="TextAlignJustify.64"/>
+                        <bt:Image size="80" resid="TextAlignJustify.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>textAlignJustify</FunctionName>
+                      </Action>
+                    </Item>
+                  </Items>
+                </Control>
+                <OfficeControl id="FontColorPicker"/>
+              </Group>
+              <Group id="Nasaq.ShapesGroup">
+                <Label resid="ShapesGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="ShapesGroup.16"/>
+                  <bt:Image size="20" resid="ShapesGroup.20"/>
+                  <bt:Image size="24" resid="ShapesGroup.24"/>
+                  <bt:Image size="32" resid="ShapesGroup.32"/>
+                  <bt:Image size="40" resid="ShapesGroup.40"/>
+                  <bt:Image size="48" resid="ShapesGroup.48"/>
+                  <bt:Image size="64" resid="ShapesGroup.64"/>
+                  <bt:Image size="80" resid="ShapesGroup.80"/>
+                </Icon>
+                <OfficeControl id="ShapesInsertGallery"/>
+                <OfficeControl id="ShapeFillColorPicker"/>
+              </Group>
+              <Group id="Nasaq.AlignGroup">
+                <Label resid="AlignGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="AlignLeft.16"/>
+                  <bt:Image size="20" resid="AlignLeft.20"/>
+                  <bt:Image size="24" resid="AlignLeft.24"/>
+                  <bt:Image size="32" resid="AlignLeft.32"/>
+                  <bt:Image size="40" resid="AlignLeft.40"/>
+                  <bt:Image size="48" resid="AlignLeft.48"/>
+                  <bt:Image size="64" resid="AlignLeft.64"/>
+                  <bt:Image size="80" resid="AlignLeft.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="Nasaq.AlignLeft">
+                  <Label resid="AlignLeft.Label"/>
+                  <Supertip>
+                    <Title resid="AlignLeft.Label"/>
+                    <Description resid="AlignLeft.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="AlignLeft.16"/>
+                    <bt:Image size="20" resid="AlignLeft.20"/>
+                    <bt:Image size="24" resid="AlignLeft.24"/>
+                    <bt:Image size="32" resid="AlignLeft.32"/>
+                    <bt:Image size="40" resid="AlignLeft.40"/>
+                    <bt:Image size="48" resid="AlignLeft.48"/>
+                    <bt:Image size="64" resid="AlignLeft.64"/>
+                    <bt:Image size="80" resid="AlignLeft.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>alignLeft</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.AlignCenter">
+                  <Label resid="AlignCenter.Label"/>
+                  <Supertip>
+                    <Title resid="AlignCenter.Label"/>
+                    <Description resid="AlignCenter.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="AlignCenter.16"/>
+                    <bt:Image size="20" resid="AlignCenter.20"/>
+                    <bt:Image size="24" resid="AlignCenter.24"/>
+                    <bt:Image size="32" resid="AlignCenter.32"/>
+                    <bt:Image size="40" resid="AlignCenter.40"/>
+                    <bt:Image size="48" resid="AlignCenter.48"/>
+                    <bt:Image size="64" resid="AlignCenter.64"/>
+                    <bt:Image size="80" resid="AlignCenter.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>alignCenter</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.AlignRight">
+                  <Label resid="AlignRight.Label"/>
+                  <Supertip>
+                    <Title resid="AlignRight.Label"/>
+                    <Description resid="AlignRight.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="AlignRight.16"/>
+                    <bt:Image size="20" resid="AlignRight.20"/>
+                    <bt:Image size="24" resid="AlignRight.24"/>
+                    <bt:Image size="32" resid="AlignRight.32"/>
+                    <bt:Image size="40" resid="AlignRight.40"/>
+                    <bt:Image size="48" resid="AlignRight.48"/>
+                    <bt:Image size="64" resid="AlignRight.64"/>
+                    <bt:Image size="80" resid="AlignRight.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>alignRight</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.AlignTop">
+                  <Label resid="AlignTop.Label"/>
+                  <Supertip>
+                    <Title resid="AlignTop.Label"/>
+                    <Description resid="AlignTop.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="AlignTop.16"/>
+                    <bt:Image size="20" resid="AlignTop.20"/>
+                    <bt:Image size="24" resid="AlignTop.24"/>
+                    <bt:Image size="32" resid="AlignTop.32"/>
+                    <bt:Image size="40" resid="AlignTop.40"/>
+                    <bt:Image size="48" resid="AlignTop.48"/>
+                    <bt:Image size="64" resid="AlignTop.64"/>
+                    <bt:Image size="80" resid="AlignTop.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>alignTop</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.AlignMiddle">
+                  <Label resid="AlignMiddle.Label"/>
+                  <Supertip>
+                    <Title resid="AlignMiddle.Label"/>
+                    <Description resid="AlignMiddle.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="AlignMiddle.16"/>
+                    <bt:Image size="20" resid="AlignMiddle.20"/>
+                    <bt:Image size="24" resid="AlignMiddle.24"/>
+                    <bt:Image size="32" resid="AlignMiddle.32"/>
+                    <bt:Image size="40" resid="AlignMiddle.40"/>
+                    <bt:Image size="48" resid="AlignMiddle.48"/>
+                    <bt:Image size="64" resid="AlignMiddle.64"/>
+                    <bt:Image size="80" resid="AlignMiddle.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>alignMiddle</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.AlignBottom">
+                  <Label resid="AlignBottom.Label"/>
+                  <Supertip>
+                    <Title resid="AlignBottom.Label"/>
+                    <Description resid="AlignBottom.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="AlignBottom.16"/>
+                    <bt:Image size="20" resid="AlignBottom.20"/>
+                    <bt:Image size="24" resid="AlignBottom.24"/>
+                    <bt:Image size="32" resid="AlignBottom.32"/>
+                    <bt:Image size="40" resid="AlignBottom.40"/>
+                    <bt:Image size="48" resid="AlignBottom.48"/>
+                    <bt:Image size="64" resid="AlignBottom.64"/>
+                    <bt:Image size="80" resid="AlignBottom.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>alignBottom</FunctionName>
+                  </Action>
+                </Control>
+                <OfficeControl id="AlignDistributeHorizontally"/>
+                <OfficeControl id="AlignDistributeVertically"/>
+              </Group>
+              <Group id="Nasaq.SizeGroup">
+                <Label resid="SizeGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="MatchSize.16"/>
+                  <bt:Image size="20" resid="MatchSize.20"/>
+                  <bt:Image size="24" resid="MatchSize.24"/>
+                  <bt:Image size="32" resid="MatchSize.32"/>
+                  <bt:Image size="40" resid="MatchSize.40"/>
+                  <bt:Image size="48" resid="MatchSize.48"/>
+                  <bt:Image size="64" resid="MatchSize.64"/>
+                  <bt:Image size="80" resid="MatchSize.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="Nasaq.MatchSize">
+                  <Label resid="MatchSize.Label"/>
+                  <Supertip>
+                    <Title resid="MatchSize.Label"/>
+                    <Description resid="MatchSize.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="MatchSize.16"/>
+                    <bt:Image size="20" resid="MatchSize.20"/>
+                    <bt:Image size="24" resid="MatchSize.24"/>
+                    <bt:Image size="32" resid="MatchSize.32"/>
+                    <bt:Image size="40" resid="MatchSize.40"/>
+                    <bt:Image size="48" resid="MatchSize.48"/>
+                    <bt:Image size="64" resid="MatchSize.64"/>
+                    <bt:Image size="80" resid="MatchSize.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>matchSize</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.MatchWidth">
+                  <Label resid="MatchWidth.Label"/>
+                  <Supertip>
+                    <Title resid="MatchWidth.Label"/>
+                    <Description resid="MatchWidth.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="MatchWidth.16"/>
+                    <bt:Image size="20" resid="MatchWidth.20"/>
+                    <bt:Image size="24" resid="MatchWidth.24"/>
+                    <bt:Image size="32" resid="MatchWidth.32"/>
+                    <bt:Image size="40" resid="MatchWidth.40"/>
+                    <bt:Image size="48" resid="MatchWidth.48"/>
+                    <bt:Image size="64" resid="MatchWidth.64"/>
+                    <bt:Image size="80" resid="MatchWidth.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>matchWidth</FunctionName>
+                  </Action>
+                </Control>
+                <Control xsi:type="Button" id="Nasaq.MatchHeight">
+                  <Label resid="MatchHeight.Label"/>
+                  <Supertip>
+                    <Title resid="MatchHeight.Label"/>
+                    <Description resid="MatchHeight.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="MatchHeight.16"/>
+                    <bt:Image size="20" resid="MatchHeight.20"/>
+                    <bt:Image size="24" resid="MatchHeight.24"/>
+                    <bt:Image size="32" resid="MatchHeight.32"/>
+                    <bt:Image size="40" resid="MatchHeight.40"/>
+                    <bt:Image size="48" resid="MatchHeight.48"/>
+                    <bt:Image size="64" resid="MatchHeight.64"/>
+                    <bt:Image size="80" resid="MatchHeight.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>matchHeight</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+              <Group id="Nasaq.SwapGroup">
+                <Label resid="SwapGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="Swap.16"/>
+                  <bt:Image size="20" resid="Swap.20"/>
+                  <bt:Image size="24" resid="Swap.24"/>
+                  <bt:Image size="32" resid="Swap.32"/>
+                  <bt:Image size="40" resid="Swap.40"/>
+                  <bt:Image size="48" resid="Swap.48"/>
+                  <bt:Image size="64" resid="Swap.64"/>
+                  <bt:Image size="80" resid="Swap.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="Nasaq.Swap">
+                  <Label resid="Swap.Label"/>
+                  <Supertip>
+                    <Title resid="Swap.Label"/>
+                    <Description resid="Swap.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Swap.16"/>
+                    <bt:Image size="20" resid="Swap.20"/>
+                    <bt:Image size="24" resid="Swap.24"/>
+                    <bt:Image size="32" resid="Swap.32"/>
+                    <bt:Image size="40" resid="Swap.40"/>
+                    <bt:Image size="48" resid="Swap.48"/>
+                    <bt:Image size="64" resid="Swap.64"/>
+                    <bt:Image size="80" resid="Swap.80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>swap</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+              <Label resid="Tab.Label"/>
+            </CustomTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="MatchSize.16" DefaultValue="https://localhost:3000/assets/match-size-16.png?v=5"/>
+        <bt:Image id="MatchSize.20" DefaultValue="https://localhost:3000/assets/match-size-20.png?v=5"/>
+        <bt:Image id="MatchSize.24" DefaultValue="https://localhost:3000/assets/match-size-24.png?v=5"/>
+        <bt:Image id="MatchSize.32" DefaultValue="https://localhost:3000/assets/match-size-32.png?v=5"/>
+        <bt:Image id="MatchSize.40" DefaultValue="https://localhost:3000/assets/match-size-40.png?v=5"/>
+        <bt:Image id="MatchSize.48" DefaultValue="https://localhost:3000/assets/match-size-48.png?v=5"/>
+        <bt:Image id="MatchSize.64" DefaultValue="https://localhost:3000/assets/match-size-64.png?v=5"/>
+        <bt:Image id="MatchSize.80" DefaultValue="https://localhost:3000/assets/match-size-80.png?v=5"/>
+        <bt:Image id="Swap.16" DefaultValue="https://localhost:3000/assets/swap-16.png?v=5"/>
+        <bt:Image id="Swap.20" DefaultValue="https://localhost:3000/assets/swap-20.png?v=5"/>
+        <bt:Image id="Swap.24" DefaultValue="https://localhost:3000/assets/swap-24.png?v=5"/>
+        <bt:Image id="Swap.32" DefaultValue="https://localhost:3000/assets/swap-32.png?v=5"/>
+        <bt:Image id="Swap.40" DefaultValue="https://localhost:3000/assets/swap-40.png?v=5"/>
+        <bt:Image id="Swap.48" DefaultValue="https://localhost:3000/assets/swap-48.png?v=5"/>
+        <bt:Image id="Swap.64" DefaultValue="https://localhost:3000/assets/swap-64.png?v=5"/>
+        <bt:Image id="Swap.80" DefaultValue="https://localhost:3000/assets/swap-80.png?v=5"/>
+        <bt:Image id="AlignLeft.16" DefaultValue="https://localhost:3000/assets/align-left-16.png?v=5"/>
+        <bt:Image id="AlignLeft.20" DefaultValue="https://localhost:3000/assets/align-left-20.png?v=5"/>
+        <bt:Image id="AlignLeft.24" DefaultValue="https://localhost:3000/assets/align-left-24.png?v=5"/>
+        <bt:Image id="AlignLeft.32" DefaultValue="https://localhost:3000/assets/align-left-32.png?v=5"/>
+        <bt:Image id="AlignLeft.40" DefaultValue="https://localhost:3000/assets/align-left-40.png?v=5"/>
+        <bt:Image id="AlignLeft.48" DefaultValue="https://localhost:3000/assets/align-left-48.png?v=5"/>
+        <bt:Image id="AlignLeft.64" DefaultValue="https://localhost:3000/assets/align-left-64.png?v=5"/>
+        <bt:Image id="AlignLeft.80" DefaultValue="https://localhost:3000/assets/align-left-80.png?v=5"/>
+        <bt:Image id="AlignRight.16" DefaultValue="https://localhost:3000/assets/align-right-16.png?v=5"/>
+        <bt:Image id="AlignRight.20" DefaultValue="https://localhost:3000/assets/align-right-20.png?v=5"/>
+        <bt:Image id="AlignRight.24" DefaultValue="https://localhost:3000/assets/align-right-24.png?v=5"/>
+        <bt:Image id="AlignRight.32" DefaultValue="https://localhost:3000/assets/align-right-32.png?v=5"/>
+        <bt:Image id="AlignRight.40" DefaultValue="https://localhost:3000/assets/align-right-40.png?v=5"/>
+        <bt:Image id="AlignRight.48" DefaultValue="https://localhost:3000/assets/align-right-48.png?v=5"/>
+        <bt:Image id="AlignRight.64" DefaultValue="https://localhost:3000/assets/align-right-64.png?v=5"/>
+        <bt:Image id="AlignRight.80" DefaultValue="https://localhost:3000/assets/align-right-80.png?v=5"/>
+        <bt:Image id="AlignTop.16" DefaultValue="https://localhost:3000/assets/align-top-16.png?v=5"/>
+        <bt:Image id="AlignTop.20" DefaultValue="https://localhost:3000/assets/align-top-20.png?v=5"/>
+        <bt:Image id="AlignTop.24" DefaultValue="https://localhost:3000/assets/align-top-24.png?v=5"/>
+        <bt:Image id="AlignTop.32" DefaultValue="https://localhost:3000/assets/align-top-32.png?v=5"/>
+        <bt:Image id="AlignTop.40" DefaultValue="https://localhost:3000/assets/align-top-40.png?v=5"/>
+        <bt:Image id="AlignTop.48" DefaultValue="https://localhost:3000/assets/align-top-48.png?v=5"/>
+        <bt:Image id="AlignTop.64" DefaultValue="https://localhost:3000/assets/align-top-64.png?v=5"/>
+        <bt:Image id="AlignTop.80" DefaultValue="https://localhost:3000/assets/align-top-80.png?v=5"/>
+        <bt:Image id="AlignBottom.16" DefaultValue="https://localhost:3000/assets/align-bottom-16.png?v=5"/>
+        <bt:Image id="AlignBottom.20" DefaultValue="https://localhost:3000/assets/align-bottom-20.png?v=5"/>
+        <bt:Image id="AlignBottom.24" DefaultValue="https://localhost:3000/assets/align-bottom-24.png?v=5"/>
+        <bt:Image id="AlignBottom.32" DefaultValue="https://localhost:3000/assets/align-bottom-32.png?v=5"/>
+        <bt:Image id="AlignBottom.40" DefaultValue="https://localhost:3000/assets/align-bottom-40.png?v=5"/>
+        <bt:Image id="AlignBottom.48" DefaultValue="https://localhost:3000/assets/align-bottom-48.png?v=5"/>
+        <bt:Image id="AlignBottom.64" DefaultValue="https://localhost:3000/assets/align-bottom-64.png?v=5"/>
+        <bt:Image id="AlignBottom.80" DefaultValue="https://localhost:3000/assets/align-bottom-80.png?v=5"/>
+        <bt:Image id="MatchWidth.16" DefaultValue="https://localhost:3000/assets/match-width-16.png?v=5"/>
+        <bt:Image id="MatchWidth.20" DefaultValue="https://localhost:3000/assets/match-width-20.png?v=5"/>
+        <bt:Image id="MatchWidth.24" DefaultValue="https://localhost:3000/assets/match-width-24.png?v=5"/>
+        <bt:Image id="MatchWidth.32" DefaultValue="https://localhost:3000/assets/match-width-32.png?v=5"/>
+        <bt:Image id="MatchWidth.40" DefaultValue="https://localhost:3000/assets/match-width-40.png?v=5"/>
+        <bt:Image id="MatchWidth.48" DefaultValue="https://localhost:3000/assets/match-width-48.png?v=5"/>
+        <bt:Image id="MatchWidth.64" DefaultValue="https://localhost:3000/assets/match-width-64.png?v=5"/>
+        <bt:Image id="MatchWidth.80" DefaultValue="https://localhost:3000/assets/match-width-80.png?v=5"/>
+        <bt:Image id="MatchHeight.16" DefaultValue="https://localhost:3000/assets/match-height-16.png?v=5"/>
+        <bt:Image id="MatchHeight.20" DefaultValue="https://localhost:3000/assets/match-height-20.png?v=5"/>
+        <bt:Image id="MatchHeight.24" DefaultValue="https://localhost:3000/assets/match-height-24.png?v=5"/>
+        <bt:Image id="MatchHeight.32" DefaultValue="https://localhost:3000/assets/match-height-32.png?v=5"/>
+        <bt:Image id="MatchHeight.40" DefaultValue="https://localhost:3000/assets/match-height-40.png?v=5"/>
+        <bt:Image id="MatchHeight.48" DefaultValue="https://localhost:3000/assets/match-height-48.png?v=5"/>
+        <bt:Image id="MatchHeight.64" DefaultValue="https://localhost:3000/assets/match-height-64.png?v=5"/>
+        <bt:Image id="MatchHeight.80" DefaultValue="https://localhost:3000/assets/match-height-80.png?v=5"/>
+        <bt:Image id="AlignCenter.16" DefaultValue="https://localhost:3000/assets/align-center-16.png?v=5"/>
+        <bt:Image id="AlignCenter.20" DefaultValue="https://localhost:3000/assets/align-center-20.png?v=5"/>
+        <bt:Image id="AlignCenter.24" DefaultValue="https://localhost:3000/assets/align-center-24.png?v=5"/>
+        <bt:Image id="AlignCenter.32" DefaultValue="https://localhost:3000/assets/align-center-32.png?v=5"/>
+        <bt:Image id="AlignCenter.40" DefaultValue="https://localhost:3000/assets/align-center-40.png?v=5"/>
+        <bt:Image id="AlignCenter.48" DefaultValue="https://localhost:3000/assets/align-center-48.png?v=5"/>
+        <bt:Image id="AlignCenter.64" DefaultValue="https://localhost:3000/assets/align-center-64.png?v=5"/>
+        <bt:Image id="AlignCenter.80" DefaultValue="https://localhost:3000/assets/align-center-80.png?v=5"/>
+        <bt:Image id="AlignMiddle.16" DefaultValue="https://localhost:3000/assets/align-middle-16.png?v=5"/>
+        <bt:Image id="AlignMiddle.20" DefaultValue="https://localhost:3000/assets/align-middle-20.png?v=5"/>
+        <bt:Image id="AlignMiddle.24" DefaultValue="https://localhost:3000/assets/align-middle-24.png?v=5"/>
+        <bt:Image id="AlignMiddle.32" DefaultValue="https://localhost:3000/assets/align-middle-32.png?v=5"/>
+        <bt:Image id="AlignMiddle.40" DefaultValue="https://localhost:3000/assets/align-middle-40.png?v=5"/>
+        <bt:Image id="AlignMiddle.48" DefaultValue="https://localhost:3000/assets/align-middle-48.png?v=5"/>
+        <bt:Image id="AlignMiddle.64" DefaultValue="https://localhost:3000/assets/align-middle-64.png?v=5"/>
+        <bt:Image id="AlignMiddle.80" DefaultValue="https://localhost:3000/assets/align-middle-80.png?v=5"/>
+        <bt:Image id="ShapesGroup.16" DefaultValue="https://localhost:3000/assets/shapes-16.png?v=5"/>
+        <bt:Image id="ShapesGroup.20" DefaultValue="https://localhost:3000/assets/shapes-20.png?v=5"/>
+        <bt:Image id="ShapesGroup.24" DefaultValue="https://localhost:3000/assets/shapes-24.png?v=5"/>
+        <bt:Image id="ShapesGroup.32" DefaultValue="https://localhost:3000/assets/shapes-32.png?v=5"/>
+        <bt:Image id="ShapesGroup.40" DefaultValue="https://localhost:3000/assets/shapes-40.png?v=5"/>
+        <bt:Image id="ShapesGroup.48" DefaultValue="https://localhost:3000/assets/shapes-48.png?v=5"/>
+        <bt:Image id="ShapesGroup.64" DefaultValue="https://localhost:3000/assets/shapes-64.png?v=5"/>
+        <bt:Image id="ShapesGroup.80" DefaultValue="https://localhost:3000/assets/shapes-80.png?v=5"/>
+        <bt:Image id="TextAlignLeft.16" DefaultValue="https://localhost:3000/assets/text-align-left-16.png?v=5"/>
+        <bt:Image id="TextAlignLeft.20" DefaultValue="https://localhost:3000/assets/text-align-left-20.png?v=5"/>
+        <bt:Image id="TextAlignLeft.24" DefaultValue="https://localhost:3000/assets/text-align-left-24.png?v=5"/>
+        <bt:Image id="TextAlignLeft.32" DefaultValue="https://localhost:3000/assets/text-align-left-32.png?v=5"/>
+        <bt:Image id="TextAlignLeft.40" DefaultValue="https://localhost:3000/assets/text-align-left-40.png?v=5"/>
+        <bt:Image id="TextAlignLeft.48" DefaultValue="https://localhost:3000/assets/text-align-left-48.png?v=5"/>
+        <bt:Image id="TextAlignLeft.64" DefaultValue="https://localhost:3000/assets/text-align-left-64.png?v=5"/>
+        <bt:Image id="TextAlignLeft.80" DefaultValue="https://localhost:3000/assets/text-align-left-80.png?v=5"/>
+        <bt:Image id="TextAlignCenter.16" DefaultValue="https://localhost:3000/assets/text-align-center-16.png?v=5"/>
+        <bt:Image id="TextAlignCenter.20" DefaultValue="https://localhost:3000/assets/text-align-center-20.png?v=5"/>
+        <bt:Image id="TextAlignCenter.24" DefaultValue="https://localhost:3000/assets/text-align-center-24.png?v=5"/>
+        <bt:Image id="TextAlignCenter.32" DefaultValue="https://localhost:3000/assets/text-align-center-32.png?v=5"/>
+        <bt:Image id="TextAlignCenter.40" DefaultValue="https://localhost:3000/assets/text-align-center-40.png?v=5"/>
+        <bt:Image id="TextAlignCenter.48" DefaultValue="https://localhost:3000/assets/text-align-center-48.png?v=5"/>
+        <bt:Image id="TextAlignCenter.64" DefaultValue="https://localhost:3000/assets/text-align-center-64.png?v=5"/>
+        <bt:Image id="TextAlignCenter.80" DefaultValue="https://localhost:3000/assets/text-align-center-80.png?v=5"/>
+        <bt:Image id="TextAlignRight.16" DefaultValue="https://localhost:3000/assets/text-align-right-16.png?v=5"/>
+        <bt:Image id="TextAlignRight.20" DefaultValue="https://localhost:3000/assets/text-align-right-20.png?v=5"/>
+        <bt:Image id="TextAlignRight.24" DefaultValue="https://localhost:3000/assets/text-align-right-24.png?v=5"/>
+        <bt:Image id="TextAlignRight.32" DefaultValue="https://localhost:3000/assets/text-align-right-32.png?v=5"/>
+        <bt:Image id="TextAlignRight.40" DefaultValue="https://localhost:3000/assets/text-align-right-40.png?v=5"/>
+        <bt:Image id="TextAlignRight.48" DefaultValue="https://localhost:3000/assets/text-align-right-48.png?v=5"/>
+        <bt:Image id="TextAlignRight.64" DefaultValue="https://localhost:3000/assets/text-align-right-64.png?v=5"/>
+        <bt:Image id="TextAlignRight.80" DefaultValue="https://localhost:3000/assets/text-align-right-80.png?v=5"/>
+        <bt:Image id="TextAlignJustify.16" DefaultValue="https://localhost:3000/assets/text-align-justify-16.png?v=5"/>
+        <bt:Image id="TextAlignJustify.20" DefaultValue="https://localhost:3000/assets/text-align-justify-20.png?v=5"/>
+        <bt:Image id="TextAlignJustify.24" DefaultValue="https://localhost:3000/assets/text-align-justify-24.png?v=5"/>
+        <bt:Image id="TextAlignJustify.32" DefaultValue="https://localhost:3000/assets/text-align-justify-32.png?v=5"/>
+        <bt:Image id="TextAlignJustify.40" DefaultValue="https://localhost:3000/assets/text-align-justify-40.png?v=5"/>
+        <bt:Image id="TextAlignJustify.48" DefaultValue="https://localhost:3000/assets/text-align-justify-48.png?v=5"/>
+        <bt:Image id="TextAlignJustify.64" DefaultValue="https://localhost:3000/assets/text-align-justify-64.png?v=5"/>
+        <bt:Image id="TextAlignJustify.80" DefaultValue="https://localhost:3000/assets/text-align-justify-80.png?v=5"/>
+        <bt:Image id="FontGroup.16" DefaultValue="https://localhost:3000/assets/font-16.png?v=5"/>
+        <bt:Image id="FontGroup.20" DefaultValue="https://localhost:3000/assets/font-20.png?v=5"/>
+        <bt:Image id="FontGroup.24" DefaultValue="https://localhost:3000/assets/font-24.png?v=5"/>
+        <bt:Image id="FontGroup.32" DefaultValue="https://localhost:3000/assets/font-32.png?v=5"/>
+        <bt:Image id="FontGroup.40" DefaultValue="https://localhost:3000/assets/font-40.png?v=5"/>
+        <bt:Image id="FontGroup.48" DefaultValue="https://localhost:3000/assets/font-48.png?v=5"/>
+        <bt:Image id="FontGroup.64" DefaultValue="https://localhost:3000/assets/font-64.png?v=5"/>
+        <bt:Image id="FontGroup.80" DefaultValue="https://localhost:3000/assets/font-80.png?v=5"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="GetStarted.Title" DefaultValue="Nasaq is ready">
+          <bt:Override Locale="ar-SA" Value="نَسَق جاهز للاستخدام"/>
+        </bt:String>
+        <bt:String id="Tab.Label" DefaultValue="Nasaq">
+          <bt:Override Locale="ar-SA" Value="نَسَق"/>
+        </bt:String>
+        <bt:String id="FontGroup.Label" DefaultValue="Font">
+          <bt:Override Locale="ar-SA" Value="الخط"/>
+        </bt:String>
+        <bt:String id="TextGroup.Label" DefaultValue="Paragraph">
+          <bt:Override Locale="ar-SA" Value="الفقرة"/>
+        </bt:String>
+        <bt:String id="TextAlignMenu.Label" DefaultValue="Text Align">
+          <bt:Override Locale="ar-SA" Value="محاذاة النص"/>
+        </bt:String>
+        <bt:String id="TextAlignLeft.Label" DefaultValue="Align Text Left">
+          <bt:Override Locale="ar-SA" Value="محاذاة النص لليسار"/>
+        </bt:String>
+        <bt:String id="TextAlignCenter.Label" DefaultValue="Center Text">
+          <bt:Override Locale="ar-SA" Value="توسيط النص"/>
+        </bt:String>
+        <bt:String id="TextAlignRight.Label" DefaultValue="Align Text Right">
+          <bt:Override Locale="ar-SA" Value="محاذاة النص لليمين"/>
+        </bt:String>
+        <bt:String id="TextAlignJustify.Label" DefaultValue="Justify Text">
+          <bt:Override Locale="ar-SA" Value="ضبط النص"/>
+        </bt:String>
+        <bt:String id="ShapesGroup.Label" DefaultValue="Shapes">
+          <bt:Override Locale="ar-SA" Value="الأشكال"/>
+        </bt:String>
+        <bt:String id="SwapGroup.Label" DefaultValue="Position">
+          <bt:Override Locale="ar-SA" Value="الموضع"/>
+        </bt:String>
+        <bt:String id="SizeGroup.Label" DefaultValue="Size">
+          <bt:Override Locale="ar-SA" Value="الحجم"/>
+        </bt:String>
+        <bt:String id="AlignGroup.Label" DefaultValue="Align">
+          <bt:Override Locale="ar-SA" Value="المحاذاة"/>
+        </bt:String>
+        <bt:String id="MatchSize.Label" DefaultValue="Match Size">
+          <bt:Override Locale="ar-SA" Value="مطابقة الحجم"/>
+        </bt:String>
+        <bt:String id="MatchWidth.Label" DefaultValue="Match Width">
+          <bt:Override Locale="ar-SA" Value="مطابقة العرض"/>
+        </bt:String>
+        <bt:String id="MatchHeight.Label" DefaultValue="Match Height">
+          <bt:Override Locale="ar-SA" Value="مطابقة الارتفاع"/>
+        </bt:String>
+        <bt:String id="Swap.Label" DefaultValue="Swap">
+          <bt:Override Locale="ar-SA" Value="تبديل"/>
+        </bt:String>
+        <bt:String id="AlignCenter.Label" DefaultValue="Align Center">
+          <bt:Override Locale="ar-SA" Value="توسيط أفقي"/>
+        </bt:String>
+        <bt:String id="AlignMiddle.Label" DefaultValue="Align Middle">
+          <bt:Override Locale="ar-SA" Value="توسيط عمودي"/>
+        </bt:String>
+        <bt:String id="AlignLeft.Label" DefaultValue="Align Left">
+          <bt:Override Locale="ar-SA" Value="محاذاة لليسار"/>
+        </bt:String>
+        <bt:String id="AlignRight.Label" DefaultValue="Align Right">
+          <bt:Override Locale="ar-SA" Value="محاذاة لليمين"/>
+        </bt:String>
+        <bt:String id="AlignTop.Label" DefaultValue="Align Top">
+          <bt:Override Locale="ar-SA" Value="محاذاة للأعلى"/>
+        </bt:String>
+        <bt:String id="AlignBottom.Label" DefaultValue="Align Bottom">
+          <bt:Override Locale="ar-SA" Value="محاذاة للأسفل"/>
+        </bt:String>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="GetStarted.Description" DefaultValue="Open the Nasaq tab on the ribbon to match, swap and align selected shapes.">
+          <bt:Override Locale="ar-SA" Value="افتح علامة التبويب نَسَق على الشريط لمطابقة الأشكال المحددة وتبديلها ومحاذاتها."/>
+        </bt:String>
+        <bt:String id="MatchSize.Tooltip" DefaultValue="Resize all selected shapes to the width and height of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="تغيير حجم جميع الأشكال المحددة لتطابق عرض وارتفاع آخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="MatchWidth.Tooltip" DefaultValue="Resize all selected shapes to the width of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="تغيير عرض جميع الأشكال المحددة ليطابق عرض آخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="MatchHeight.Tooltip" DefaultValue="Resize all selected shapes to the height of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="تغيير ارتفاع جميع الأشكال المحددة ليطابق ارتفاع آخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="AlignCenter.Tooltip" DefaultValue="Center the selected shapes horizontally on the center of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="توسيط الأشكال المحددة أفقيًا على مركز آخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="AlignMiddle.Tooltip" DefaultValue="Center the selected shapes vertically on the middle of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="توسيط الأشكال المحددة عموديًا على منتصف آخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="TextAlignMenu.Tooltip" DefaultValue="Align the paragraphs of the selected text, or of all text in the selected shapes.">
+          <bt:Override Locale="ar-SA" Value="محاذاة فقرات النص المحدد، أو كل النص في الأشكال المحددة."/>
+        </bt:String>
+        <bt:String id="TextAlignLeft.Tooltip" DefaultValue="Align text to the left.">
+          <bt:Override Locale="ar-SA" Value="محاذاة النص إلى اليسار."/>
+        </bt:String>
+        <bt:String id="TextAlignCenter.Tooltip" DefaultValue="Center text.">
+          <bt:Override Locale="ar-SA" Value="توسيط النص."/>
+        </bt:String>
+        <bt:String id="TextAlignRight.Tooltip" DefaultValue="Align text to the right.">
+          <bt:Override Locale="ar-SA" Value="محاذاة النص إلى اليمين."/>
+        </bt:String>
+        <bt:String id="TextAlignJustify.Tooltip" DefaultValue="Justify text so it lines up with both margins.">
+          <bt:Override Locale="ar-SA" Value="ضبط النص ليصطف مع الهامشين."/>
+        </bt:String>
+        <bt:String id="Swap.Tooltip" DefaultValue="Swap the positions of exactly two selected shapes, center to center.">
+          <bt:Override Locale="ar-SA" Value="تبديل موضعي شكلين محددين بالضبط، من المركز إلى المركز."/>
+        </bt:String>
+        <bt:String id="AlignLeft.Tooltip" DefaultValue="Align the left edges of the selected shapes to the left edge of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="محاذاة الحواف اليسرى للأشكال المحددة مع الحافة اليسرى لآخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="AlignRight.Tooltip" DefaultValue="Align the right edges of the selected shapes to the right edge of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="محاذاة الحواف اليمنى للأشكال المحددة مع الحافة اليمنى لآخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="AlignTop.Tooltip" DefaultValue="Align the top edges of the selected shapes to the top edge of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="محاذاة الحواف العلوية للأشكال المحددة مع الحافة العلوية لآخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="AlignBottom.Tooltip" DefaultValue="Align the bottom edges of the selected shapes to the bottom edge of the last shape you selected.">
+          <bt:Override Locale="ar-SA" Value="محاذاة الحواف السفلية للأشكال المحددة مع الحافة السفلية لآخر شكل قمت بتحديده."/>
+        </bt:String>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>

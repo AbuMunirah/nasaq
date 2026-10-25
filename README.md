@@ -40,6 +40,26 @@ The ribbon labels, tooltips and messages appear in Arabic when Office is set to 
 
 ### Install
 
+#### Easy install (one file)
+
+Download the installer for your computer from the [latest release](https://github.com/AbuMunirah/nasaq/releases/latest) and run it. No admin rights are needed.
+
+**Mac:** download `Nasaq-Installer-Mac.zip`, unzip it and double-click `install-mac.command`.
+If macOS says it can't verify the developer, open **System Settings → Privacy & Security** and click **Open Anyway**.
+Or skip the download and paste this into Terminal:
+
+```bash
+curl -fsSL https://abumunirah.github.io/nasaq/install/install-mac.command | bash
+```
+
+**Windows:** download `Nasaq-Installer-Windows.cmd` and double-click it.
+If Windows shows "Windows protected your PC", click **More info → Run anyway**.
+
+Then restart PowerPoint and choose **Home → Add-ins → My Add-ins → Developer Add-ins → Nasaq**.
+To remove Nasaq, run the installer with `--uninstall` (Mac) or `/uninstall` (Windows).
+
+#### Manual install
+
 The add-in is defined by one file, the manifest:
 **https://abumunirah.github.io/nasaq/manifest.xml**
 
@@ -120,6 +140,25 @@ Every push to `main` builds the add-in and publishes it to GitHub Pages
 - اتصال بالإنترنت: مثل جميع إضافات Office المبنية على الويب، تحمّل نَسَق شيفرتها من GitHub Pages عند استخدامها.
 
 ### التثبيت
+
+#### التثبيت السهل (ملف واحد)
+
+نزّل المثبّت المناسب لجهازك من [أحدث إصدار](https://github.com/AbuMunirah/nasaq/releases/latest) وشغّله. لا يلزم امتلاك صلاحيات المسؤول.
+
+**Mac:** نزّل `Nasaq-Installer-Mac.zip`، وفك ضغطه، ثم انقر نقرًا مزدوجًا على `install-mac.command`.
+إذا ظهرت رسالة بأن macOS لا يمكنه التحقق من المطوّر، افتح **إعدادات النظام ← الخصوصية والأمان** وانقر **فتح على أي حال**.
+أو الصق هذا الأمر في تطبيق Terminal بدلًا من التنزيل:
+
+```bash
+curl -fsSL https://abumunirah.github.io/nasaq/install/install-mac.command | bash
+```
+
+**Windows:** نزّل `Nasaq-Installer-Windows.cmd` وانقر عليه نقرًا مزدوجًا.
+إذا ظهرت رسالة "Windows protected your PC"، انقر **More info ← Run anyway**.
+
+بعدها أعد تشغيل PowerPoint واختر **الصفحة الرئيسية ← الوظائف الإضافية ← وظائفي الإضافية ← وظائف المطوّر الإضافية ← نَسَق**.
+
+#### التثبيت اليدوي
 
 تُعرَّف الإضافة بملف واحد هو ملف البيان (manifest):
 **https://abumunirah.github.io/nasaq/manifest.xml**

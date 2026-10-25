@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Nasaq ribbon for the VBA edition (.ppam). Labels and tooltips come from Nasaq_GetLabel /
+     Nasaq_GetSupertip so they follow the Office language (English or Arabic). -->
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+  <ribbon>
+    <tabs>
+      <tab id="Tab" getLabel="Nasaq_GetLabel" insertAfterMso="TabHome">
+
+        <group id="FontGroup" getLabel="Nasaq_GetLabel">
+          <box id="FontRow" boxStyle="horizontal">
+            <control idMso="Font"/>
+            <control idMso="FontSize"/>
+            <control idMso="FontColorPicker"/>
+          </box>
+        </group>
+
+        <group id="TextGroup" getLabel="Nasaq_GetLabel">
+          <menu id="TextAlignMenu" size="large" image="text_align_left" getLabel="Nasaq_GetLabel"
+                getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip">
+            <control idMso="AlignLeft"/>
+            <control idMso="AlignCenter"/>
+            <control idMso="AlignRight"/>
+            <control idMso="AlignJustify"/>
+          </menu>
+        </group>
+
+        <group id="ShapesGroup" getLabel="Nasaq_GetLabel">
+          <control idMso="ShapesInsertGallery"/>
+          <control idMso="ShapeFillColorPicker"/>
+        </group>
+
+        <group id="AlignGroup" getLabel="Nasaq_GetLabel">
+          <button id="AlignLeft" image="align_left" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="AlignCenter" image="align_center" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="AlignRight" image="align_right" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="AlignTop" image="align_top" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="AlignMiddle" image="align_middle" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="AlignBottom" image="align_bottom" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <control idMso="AlignDistributeHorizontally"/>
+          <control idMso="AlignDistributeVertically"/>
+        </group>
+
+        <group id="SizeGroup" getLabel="Nasaq_GetLabel">
+          <button id="MatchSize" size="large" image="match_size" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="MatchWidth" size="large" image="match_width" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="MatchHeight" size="large" image="match_height" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+        </group>
+
+        <group id="SwapGroup" getLabel="Nasaq_GetLabel">
+          <button id="Swap" size="large" image="swap" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+        </group>
+
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>

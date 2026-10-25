@@ -151,3 +151,4 @@ vite.config.ts.timestamp-*
 # Nasaq
 dist/
 .DS_Store
+ppam/out/

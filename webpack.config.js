@@ -67,6 +67,10 @@ module.exports = async (env, options) => {
             to: "install/[name][ext]",
           },
           {
+            from: "ppam/Nasaq.ppam",
+            to: "install/Nasaq.ppam",
+          },
+          {
             from: "manifest*.xml",
             to: "[name]" + "[ext]",
             transform(content) {

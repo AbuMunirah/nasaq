@@ -157,6 +157,38 @@ function alignText(alignment: PowerPoint.ParagraphHorizontalAlignment) {
   });
 }
 
+/** setZOrder and zOrderPosition need a newer API than the rest of the add-in. */
+const ORDER_API = { name: "PowerPointApi", version: "1.8" };
+
+/**
+ * Changes the stacking order of the selected shapes. Shapes are processed in an
+ * order that keeps their stacking relative to each other.
+ */
+function order(position: PowerPoint.ShapeZOrder) {
+  return command(async (context) => {
+    if (!Office.context.requirements.isSetSupported(ORDER_API.name, ORDER_API.version)) {
+      throw new UserError(strings().needsApi(`${ORDER_API.name} ${ORDER_API.version}`));
+    }
+    const shapes = context.presentation.getSelectedShapes();
+    shapes.load("items/zOrderPosition");
+    await context.sync();
+    if (shapes.items.length === 0) {
+      throw new UserError(strings().needsSelection);
+    }
+    // Front/Backward: lowest first. Forward/Back: highest first.
+    const lowestFirst =
+      position === PowerPoint.ShapeZOrder.bringToFront ||
+      position === PowerPoint.ShapeZOrder.sendBackward;
+    const sorted = [...shapes.items].sort((a, b) =>
+      lowestFirst ? a.zOrderPosition - b.zOrderPosition : b.zOrderPosition - a.zOrderPosition
+    );
+    for (const shape of sorted) {
+      shape.setZOrder(position);
+    }
+    await context.sync();
+  });
+}
+
 // Register the add-in commands with the Office host application.
 // The names must match the <FunctionName> values in manifest.xml.
 Office.onReady(() => {
@@ -186,4 +218,8 @@ Office.onReady(() => {
     "textAlignJustify",
     alignText(PowerPoint.ParagraphHorizontalAlignment.justify)
   );
+  Office.actions.associate("orderBringToFront", order(PowerPoint.ShapeZOrder.bringToFront));
+  Office.actions.associate("orderBringForward", order(PowerPoint.ShapeZOrder.bringForward));
+  Office.actions.associate("orderSendBackward", order(PowerPoint.ShapeZOrder.sendBackward));
+  Office.actions.associate("orderSendToBack", order(PowerPoint.ShapeZOrder.sendToBack));
 });

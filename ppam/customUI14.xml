@@ -22,11 +22,26 @@
             <control idMso="AlignRight"/>
             <control idMso="AlignJustify"/>
           </menu>
+          <menu id="TextDirectionMenu" size="large" image="text_direction" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip">
+            <control idMso="TextDirectionRightToLeft"/>
+            <control idMso="TextDirectionLeftToRight"/>
+          </menu>
         </group>
 
         <group id="ShapesGroup" getLabel="Nasaq_GetLabel">
           <control idMso="ShapesInsertGallery"/>
           <control idMso="ShapeFillColorPicker"/>
+        </group>
+
+        <group id="ArrangeGroup" getLabel="Nasaq_GetLabel">
+          <control idMso="ObjectsGroup"/>
+          <control idMso="ObjectsUngroup"/>
+          <menu id="OrderMenu" image="order_front" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip">
+            <control idMso="ObjectBringToFront"/>
+            <control idMso="ObjectBringForward"/>
+            <control idMso="ObjectSendBackward"/>
+            <control idMso="ObjectSendToBack"/>
+          </menu>
         </group>
 
         <group id="AlignGroup" getLabel="Nasaq_GetLabel">
@@ -48,6 +63,11 @@
 
         <group id="SwapGroup" getLabel="Nasaq_GetLabel">
           <button id="Swap" size="large" image="swap" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+          <button id="DuplicateGrid" size="large" image="duplicate_grid" getLabel="Nasaq_GetLabel" getScreentip="Nasaq_GetLabel" getSupertip="Nasaq_GetSupertip" onAction="Nasaq_OnAction"/>
+        </group>
+
+        <group id="CommentsGroup" getLabel="Nasaq_GetLabel">
+          <control idMso="ReviewNewComment" size="large"/>
         </group>
 
       </tab>

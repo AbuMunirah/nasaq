@@ -37,6 +37,22 @@ EXTRA = {
         "يتطلب التبديل تحديد شكلين بالضبط (عدد الأشكال المحددة: {0}).",
     ),
     "Message.Unexpected": ("Something went wrong: {0}", "حدث خطأ: {0}"),
+    "Message.SelectShapes": ("Select at least one shape first.", "حدد شكلًا واحدًا على الأقل أولًا."),
+    "Message.InvalidCount": ("Enter a whole number from 1 to 100.", "أدخل عددًا صحيحًا من 1 إلى 100."),
+    "Duplicate.Prompt": (
+        "How many copies? They will be arranged in a grid with the original.",
+        "كم عدد النسخ؟ سيتم ترتيبها في شبكة مع الأصل.",
+    ),
+    "TextDirectionMenu.Label": ("Text Direction", "اتجاه النص"),
+    "TextDirectionMenu.Tooltip": (
+        "Set the reading direction of the selected text: right-to-left or left-to-right.",
+        "تعيين اتجاه قراءة النص المحدد: من اليمين إلى اليسار أو من اليسار إلى اليمين.",
+    ),
+    "DuplicateGrid.Label": ("Duplicate", "تكرار"),
+    "DuplicateGrid.Tooltip": (
+        "Make copies of the selected shapes and arrange them in a grid.",
+        "إنشاء نسخ من الأشكال المحددة وترتيبها في شبكة.",
+    ),
 }
 
 # Main part content types: a .ppam is a macro-enabled presentation marked as an add-in.
@@ -56,6 +72,9 @@ IMAGES = {
     "match_height": "match-height",
     "swap": "swap",
     "text_align_left": "text-align-left",
+    "text_direction": "text-direction",
+    "order_front": "order-front",
+    "duplicate_grid": "duplicate-grid",
 }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>9f4a790a-ef14-41ef-8b0d-6c6ee8a906b2</Id>
-  <Version>1.0.0.0</Version>
+  <Version>1.1.0.0</Version>
   <ProviderName>Nasaq</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Nasaq">
@@ -160,6 +160,8 @@
                   </Items>
                 </Control>
                 <OfficeControl id="FontColorPicker"/>
+                <OfficeControl id="TextDirectionLeftToRight"/>
+                <OfficeControl id="TextDirectionRightToLeft"/>
               </Group>
               <Group id="Nasaq.ShapesGroup">
                 <Label resid="ShapesGroup.Label"/>
@@ -175,6 +177,120 @@
                 </Icon>
                 <OfficeControl id="ShapesInsertGallery"/>
                 <OfficeControl id="ShapeFillColorPicker"/>
+              </Group>
+              <Group id="Nasaq.ArrangeGroup">
+                <Label resid="ArrangeGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="ArrangeGroup.16"/>
+                  <bt:Image size="20" resid="ArrangeGroup.20"/>
+                  <bt:Image size="24" resid="ArrangeGroup.24"/>
+                  <bt:Image size="32" resid="ArrangeGroup.32"/>
+                  <bt:Image size="40" resid="ArrangeGroup.40"/>
+                  <bt:Image size="48" resid="ArrangeGroup.48"/>
+                  <bt:Image size="64" resid="ArrangeGroup.64"/>
+                  <bt:Image size="80" resid="ArrangeGroup.80"/>
+                </Icon>
+                <OfficeControl id="ObjectsGroup"/>
+                <OfficeControl id="ObjectsUngroup"/>
+                <Control xsi:type="Menu" id="Nasaq.OrderMenu">
+                  <Label resid="OrderMenu.Label"/>
+                  <Supertip>
+                    <Title resid="OrderMenu.Label"/>
+                    <Description resid="OrderMenu.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="OrderFront.16"/>
+                    <bt:Image size="20" resid="OrderFront.20"/>
+                    <bt:Image size="24" resid="OrderFront.24"/>
+                    <bt:Image size="32" resid="OrderFront.32"/>
+                    <bt:Image size="40" resid="OrderFront.40"/>
+                    <bt:Image size="48" resid="OrderFront.48"/>
+                    <bt:Image size="64" resid="OrderFront.64"/>
+                    <bt:Image size="80" resid="OrderFront.80"/>
+                  </Icon>
+                  <Items>
+                    <Item id="Nasaq.OrderFront">
+                      <Label resid="OrderFront.Label"/>
+                      <Supertip>
+                        <Title resid="OrderFront.Label"/>
+                        <Description resid="OrderFront.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="OrderFront.16"/>
+                        <bt:Image size="20" resid="OrderFront.20"/>
+                        <bt:Image size="24" resid="OrderFront.24"/>
+                        <bt:Image size="32" resid="OrderFront.32"/>
+                        <bt:Image size="40" resid="OrderFront.40"/>
+                        <bt:Image size="48" resid="OrderFront.48"/>
+                        <bt:Image size="64" resid="OrderFront.64"/>
+                        <bt:Image size="80" resid="OrderFront.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>orderBringToFront</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="Nasaq.OrderForward">
+                      <Label resid="OrderForward.Label"/>
+                      <Supertip>
+                        <Title resid="OrderForward.Label"/>
+                        <Description resid="OrderForward.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="OrderForward.16"/>
+                        <bt:Image size="20" resid="OrderForward.20"/>
+                        <bt:Image size="24" resid="OrderForward.24"/>
+                        <bt:Image size="32" resid="OrderForward.32"/>
+                        <bt:Image size="40" resid="OrderForward.40"/>
+                        <bt:Image size="48" resid="OrderForward.48"/>
+                        <bt:Image size="64" resid="OrderForward.64"/>
+                        <bt:Image size="80" resid="OrderForward.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>orderBringForward</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="Nasaq.OrderBackward">
+                      <Label resid="OrderBackward.Label"/>
+                      <Supertip>
+                        <Title resid="OrderBackward.Label"/>
+                        <Description resid="OrderBackward.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="OrderBackward.16"/>
+                        <bt:Image size="20" resid="OrderBackward.20"/>
+                        <bt:Image size="24" resid="OrderBackward.24"/>
+                        <bt:Image size="32" resid="OrderBackward.32"/>
+                        <bt:Image size="40" resid="OrderBackward.40"/>
+                        <bt:Image size="48" resid="OrderBackward.48"/>
+                        <bt:Image size="64" resid="OrderBackward.64"/>
+                        <bt:Image size="80" resid="OrderBackward.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>orderSendBackward</FunctionName>
+                      </Action>
+                    </Item>
+                    <Item id="Nasaq.OrderBack">
+                      <Label resid="OrderBack.Label"/>
+                      <Supertip>
+                        <Title resid="OrderBack.Label"/>
+                        <Description resid="OrderBack.Tooltip"/>
+                      </Supertip>
+                      <Icon>
+                        <bt:Image size="16" resid="OrderBack.16"/>
+                        <bt:Image size="20" resid="OrderBack.20"/>
+                        <bt:Image size="24" resid="OrderBack.24"/>
+                        <bt:Image size="32" resid="OrderBack.32"/>
+                        <bt:Image size="40" resid="OrderBack.40"/>
+                        <bt:Image size="48" resid="OrderBack.48"/>
+                        <bt:Image size="64" resid="OrderBack.64"/>
+                        <bt:Image size="80" resid="OrderBack.80"/>
+                      </Icon>
+                      <Action xsi:type="ExecuteFunction">
+                        <FunctionName>orderSendToBack</FunctionName>
+                      </Action>
+                    </Item>
+                  </Items>
+                </Control>
               </Group>
               <Group id="Nasaq.AlignGroup">
                 <Label resid="AlignGroup.Label"/>
@@ -416,6 +532,21 @@
                     <FunctionName>swap</FunctionName>
                   </Action>
                 </Control>
+                <OfficeControl id="PasteDuplicate"/>
+              </Group>
+              <Group id="Nasaq.CommentsGroup">
+                <Label resid="CommentsGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="CommentsGroup.16"/>
+                  <bt:Image size="20" resid="CommentsGroup.20"/>
+                  <bt:Image size="24" resid="CommentsGroup.24"/>
+                  <bt:Image size="32" resid="CommentsGroup.32"/>
+                  <bt:Image size="40" resid="CommentsGroup.40"/>
+                  <bt:Image size="48" resid="CommentsGroup.48"/>
+                  <bt:Image size="64" resid="CommentsGroup.64"/>
+                  <bt:Image size="80" resid="CommentsGroup.80"/>
+                </Icon>
+                <OfficeControl id="ReviewNewComment"/>
               </Group>
               <Label resid="Tab.Label"/>
             </CustomTab>
@@ -553,6 +684,54 @@
         <bt:Image id="FontGroup.48" DefaultValue="https://localhost:3000/assets/font-48.png?v=5"/>
         <bt:Image id="FontGroup.64" DefaultValue="https://localhost:3000/assets/font-64.png?v=5"/>
         <bt:Image id="FontGroup.80" DefaultValue="https://localhost:3000/assets/font-80.png?v=5"/>
+        <bt:Image id="ArrangeGroup.16" DefaultValue="https://localhost:3000/assets/group-16.png?v=5"/>
+        <bt:Image id="ArrangeGroup.20" DefaultValue="https://localhost:3000/assets/group-20.png?v=5"/>
+        <bt:Image id="ArrangeGroup.24" DefaultValue="https://localhost:3000/assets/group-24.png?v=5"/>
+        <bt:Image id="ArrangeGroup.32" DefaultValue="https://localhost:3000/assets/group-32.png?v=5"/>
+        <bt:Image id="ArrangeGroup.40" DefaultValue="https://localhost:3000/assets/group-40.png?v=5"/>
+        <bt:Image id="ArrangeGroup.48" DefaultValue="https://localhost:3000/assets/group-48.png?v=5"/>
+        <bt:Image id="ArrangeGroup.64" DefaultValue="https://localhost:3000/assets/group-64.png?v=5"/>
+        <bt:Image id="ArrangeGroup.80" DefaultValue="https://localhost:3000/assets/group-80.png?v=5"/>
+        <bt:Image id="CommentsGroup.16" DefaultValue="https://localhost:3000/assets/comment-16.png?v=5"/>
+        <bt:Image id="CommentsGroup.20" DefaultValue="https://localhost:3000/assets/comment-20.png?v=5"/>
+        <bt:Image id="CommentsGroup.24" DefaultValue="https://localhost:3000/assets/comment-24.png?v=5"/>
+        <bt:Image id="CommentsGroup.32" DefaultValue="https://localhost:3000/assets/comment-32.png?v=5"/>
+        <bt:Image id="CommentsGroup.40" DefaultValue="https://localhost:3000/assets/comment-40.png?v=5"/>
+        <bt:Image id="CommentsGroup.48" DefaultValue="https://localhost:3000/assets/comment-48.png?v=5"/>
+        <bt:Image id="CommentsGroup.64" DefaultValue="https://localhost:3000/assets/comment-64.png?v=5"/>
+        <bt:Image id="CommentsGroup.80" DefaultValue="https://localhost:3000/assets/comment-80.png?v=5"/>
+        <bt:Image id="OrderFront.16" DefaultValue="https://localhost:3000/assets/order-front-16.png?v=5"/>
+        <bt:Image id="OrderFront.20" DefaultValue="https://localhost:3000/assets/order-front-20.png?v=5"/>
+        <bt:Image id="OrderFront.24" DefaultValue="https://localhost:3000/assets/order-front-24.png?v=5"/>
+        <bt:Image id="OrderFront.32" DefaultValue="https://localhost:3000/assets/order-front-32.png?v=5"/>
+        <bt:Image id="OrderFront.40" DefaultValue="https://localhost:3000/assets/order-front-40.png?v=5"/>
+        <bt:Image id="OrderFront.48" DefaultValue="https://localhost:3000/assets/order-front-48.png?v=5"/>
+        <bt:Image id="OrderFront.64" DefaultValue="https://localhost:3000/assets/order-front-64.png?v=5"/>
+        <bt:Image id="OrderFront.80" DefaultValue="https://localhost:3000/assets/order-front-80.png?v=5"/>
+        <bt:Image id="OrderForward.16" DefaultValue="https://localhost:3000/assets/order-forward-16.png?v=5"/>
+        <bt:Image id="OrderForward.20" DefaultValue="https://localhost:3000/assets/order-forward-20.png?v=5"/>
+        <bt:Image id="OrderForward.24" DefaultValue="https://localhost:3000/assets/order-forward-24.png?v=5"/>
+        <bt:Image id="OrderForward.32" DefaultValue="https://localhost:3000/assets/order-forward-32.png?v=5"/>
+        <bt:Image id="OrderForward.40" DefaultValue="https://localhost:3000/assets/order-forward-40.png?v=5"/>
+        <bt:Image id="OrderForward.48" DefaultValue="https://localhost:3000/assets/order-forward-48.png?v=5"/>
+        <bt:Image id="OrderForward.64" DefaultValue="https://localhost:3000/assets/order-forward-64.png?v=5"/>
+        <bt:Image id="OrderForward.80" DefaultValue="https://localhost:3000/assets/order-forward-80.png?v=5"/>
+        <bt:Image id="OrderBackward.16" DefaultValue="https://localhost:3000/assets/order-backward-16.png?v=5"/>
+        <bt:Image id="OrderBackward.20" DefaultValue="https://localhost:3000/assets/order-backward-20.png?v=5"/>
+        <bt:Image id="OrderBackward.24" DefaultValue="https://localhost:3000/assets/order-backward-24.png?v=5"/>
+        <bt:Image id="OrderBackward.32" DefaultValue="https://localhost:3000/assets/order-backward-32.png?v=5"/>
+        <bt:Image id="OrderBackward.40" DefaultValue="https://localhost:3000/assets/order-backward-40.png?v=5"/>
+        <bt:Image id="OrderBackward.48" DefaultValue="https://localhost:3000/assets/order-backward-48.png?v=5"/>
+        <bt:Image id="OrderBackward.64" DefaultValue="https://localhost:3000/assets/order-backward-64.png?v=5"/>
+        <bt:Image id="OrderBackward.80" DefaultValue="https://localhost:3000/assets/order-backward-80.png?v=5"/>
+        <bt:Image id="OrderBack.16" DefaultValue="https://localhost:3000/assets/order-back-16.png?v=5"/>
+        <bt:Image id="OrderBack.20" DefaultValue="https://localhost:3000/assets/order-back-20.png?v=5"/>
+        <bt:Image id="OrderBack.24" DefaultValue="https://localhost:3000/assets/order-back-24.png?v=5"/>
+        <bt:Image id="OrderBack.32" DefaultValue="https://localhost:3000/assets/order-back-32.png?v=5"/>
+        <bt:Image id="OrderBack.40" DefaultValue="https://localhost:3000/assets/order-back-40.png?v=5"/>
+        <bt:Image id="OrderBack.48" DefaultValue="https://localhost:3000/assets/order-back-48.png?v=5"/>
+        <bt:Image id="OrderBack.64" DefaultValue="https://localhost:3000/assets/order-back-64.png?v=5"/>
+        <bt:Image id="OrderBack.80" DefaultValue="https://localhost:3000/assets/order-back-80.png?v=5"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://localhost:3000/taskpane.html"/>
@@ -628,6 +807,27 @@
         <bt:String id="AlignBottom.Label" DefaultValue="Align Bottom">
           <bt:Override Locale="ar-SA" Value="محاذاة للأسفل"/>
         </bt:String>
+        <bt:String id="ArrangeGroup.Label" DefaultValue="Arrange">
+          <bt:Override Locale="ar-SA" Value="تنظيم"/>
+        </bt:String>
+        <bt:String id="CommentsGroup.Label" DefaultValue="Comments">
+          <bt:Override Locale="ar-SA" Value="التعليقات"/>
+        </bt:String>
+        <bt:String id="OrderMenu.Label" DefaultValue="Order">
+          <bt:Override Locale="ar-SA" Value="الترتيب"/>
+        </bt:String>
+        <bt:String id="OrderFront.Label" DefaultValue="Bring to Front">
+          <bt:Override Locale="ar-SA" Value="إحضار إلى الأمام"/>
+        </bt:String>
+        <bt:String id="OrderForward.Label" DefaultValue="Bring Forward">
+          <bt:Override Locale="ar-SA" Value="إحضار للأمام"/>
+        </bt:String>
+        <bt:String id="OrderBackward.Label" DefaultValue="Send Backward">
+          <bt:Override Locale="ar-SA" Value="إرسال للخلف"/>
+        </bt:String>
+        <bt:String id="OrderBack.Label" DefaultValue="Send to Back">
+          <bt:Override Locale="ar-SA" Value="إرسال إلى الخلف"/>
+        </bt:String>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Open the Nasaq tab on the ribbon to match, swap and align selected shapes.">
@@ -677,6 +877,21 @@
         </bt:String>
         <bt:String id="AlignBottom.Tooltip" DefaultValue="Align the bottom edges of the selected shapes to the bottom edge of the last shape you selected.">
           <bt:Override Locale="ar-SA" Value="محاذاة الحواف السفلية للأشكال المحددة مع الحافة السفلية لآخر شكل قمت بتحديده."/>
+        </bt:String>
+        <bt:String id="OrderMenu.Tooltip" DefaultValue="Change the stacking order of the selected shapes.">
+          <bt:Override Locale="ar-SA" Value="تغيير ترتيب تراكب الأشكال المحددة."/>
+        </bt:String>
+        <bt:String id="OrderFront.Tooltip" DefaultValue="Bring the selected shapes in front of all other shapes.">
+          <bt:Override Locale="ar-SA" Value="إحضار الأشكال المحددة أمام جميع الأشكال الأخرى."/>
+        </bt:String>
+        <bt:String id="OrderForward.Tooltip" DefaultValue="Bring the selected shapes forward one level.">
+          <bt:Override Locale="ar-SA" Value="إحضار الأشكال المحددة للأمام بمستوى واحد."/>
+        </bt:String>
+        <bt:String id="OrderBackward.Tooltip" DefaultValue="Send the selected shapes backward one level.">
+          <bt:Override Locale="ar-SA" Value="إرسال الأشكال المحددة للخلف بمستوى واحد."/>
+        </bt:String>
+        <bt:String id="OrderBack.Tooltip" DefaultValue="Send the selected shapes behind all other shapes.">
+          <bt:Override Locale="ar-SA" Value="إرسال الأشكال المحددة خلف جميع الأشكال الأخرى."/>
         </bt:String>
       </bt:LongStrings>
     </Resources>

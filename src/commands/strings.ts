@@ -13,6 +13,7 @@ interface Strings {
   swapNeedsExactlyTwo(selected: number): string;
   needsApi(api: string): string;
   needsText: string;
+  needsSelection: string;
   unexpected(detail: string): string;
 }
 
@@ -28,6 +29,7 @@ const en: Strings = {
   swapNeedsExactlyTwo: (selected) => `Swap needs exactly 2 selected shapes (${selected} selected).`,
   needsApi: (api) => `Nasaq requires ${api}. Please update PowerPoint.`,
   needsText: "Select some text, or shapes that contain text, to align text.",
+  needsSelection: "Select at least one shape first.",
   unexpected: (detail) => `Something went wrong: ${detail}`,
 };
 
@@ -44,6 +46,7 @@ const ar: Strings = {
     `يتطلب التبديل تحديد شكلين بالضبط (عدد الأشكال المحددة: ${selected}).`,
   needsApi: (api) => `يتطلب نَسَق ${api}. يُرجى تحديث PowerPoint.`,
   needsText: "حدد نصًا، أو أشكالًا تحتوي على نص، لمحاذاة النص.",
+  needsSelection: "حدد شكلًا واحدًا على الأقل أولًا.",
   unexpected: (detail) => `حدث خطأ: ${detail}`,
 };
 

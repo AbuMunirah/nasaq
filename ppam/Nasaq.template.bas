@@ -46,6 +46,7 @@ Public Sub Nasaq_OnAction(control As IRibbonControl)
         Case "AlignTop": AlignShapes "top"
         Case "AlignMiddle": AlignShapes "middle"
         Case "AlignBottom": AlignShapes "bottom"
+        Case "DuplicateGrid": DuplicateInGrid
     End Select
     Exit Sub
 Failed:
@@ -115,6 +116,64 @@ Private Sub AlignShapes(ByVal edge As String)
     Next i
 End Sub
 
+' Copies the selection (as one unit) and lays the copies out in a grid. The original
+' is the first cell; copies fill left to right, then top to bottom. Columns are
+' chosen to make the grid as square as possible (e.g. 8 copies + original = 3 x 3).
+Private Sub DuplicateInGrid()
+    Const GAP As Single = 10        ' points between cells
+    Const MAX_COPIES As Long = 100
+
+    Dim shapes As ShapeRange
+    Set shapes = SelectedShapes()
+    If CountOf(shapes) = 0 Then
+        ShowMessage Text("Message.SelectShapes")
+        Exit Sub
+    End If
+
+    Dim answer As String
+    answer = NormalizeDigits(Trim$(InputBox(Text("Duplicate.Prompt"), Text("App.Name"), "3")))
+    If Len(answer) = 0 Then Exit Sub    ' cancelled
+    If Not IsWholeNumber(answer) Then
+        ShowMessage Text("Message.InvalidCount")
+        Exit Sub
+    End If
+    Dim copies As Long
+    copies = CLng(answer)
+    If copies < 1 Or copies > MAX_COPIES Then
+        ShowMessage Text("Message.InvalidCount")
+        Exit Sub
+    End If
+
+    ' Bounding box of the selection = size of one grid cell.
+    Dim minLeft As Single, minTop As Single, maxRight As Single, maxBottom As Single, i As Long
+    minLeft = shapes(1).Left: minTop = shapes(1).Top
+    maxRight = shapes(1).Left + shapes(1).Width: maxBottom = shapes(1).Top + shapes(1).Height
+    For i = 2 To shapes.Count
+        With shapes(i)
+            If .Left < minLeft Then minLeft = .Left
+            If .Top < minTop Then minTop = .Top
+            If .Left + .Width > maxRight Then maxRight = .Left + .Width
+            If .Top + .Height > maxBottom Then maxBottom = .Top + .Height
+        End With
+    Next i
+    Dim cellWidth As Single, cellHeight As Single
+    cellWidth = maxRight - minLeft + GAP
+    cellHeight = maxBottom - minTop + GAP
+
+    Dim columns As Long
+    columns = Int(Sqr(copies + 1))
+    If columns * columns < copies + 1 Then columns = columns + 1
+
+    Dim n As Long, k As Long, copyRange As ShapeRange
+    For n = 1 To copies
+        Set copyRange = shapes.Duplicate
+        For k = 1 To copyRange.Count
+            copyRange(k).Left = shapes(k).Left + (n Mod columns) * cellWidth
+            copyRange(k).Top = shapes(k).Top + (n \ columns) * cellHeight
+        Next k
+    Next n
+End Sub
+
 ' ---------------------------------------------------------------------------
 ' Helpers
 ' ---------------------------------------------------------------------------
@@ -140,6 +199,28 @@ Private Function RequireTwo(ByRef shapes As ShapeRange, ByVal commandKey As Stri
         ShowMessage Replace(Replace(Text("Message.NeedsTwo"), "{0}", Text(commandKey & ".Name")), _
             "{1}", CStr(CountOf(shapes)))
     End If
+End Function
+
+Private Function IsWholeNumber(ByVal value As String) As Boolean
+    Dim i As Long
+    If Len(value) = 0 Or Len(value) > 4 Then Exit Function
+    For i = 1 To Len(value)
+        If Mid$(value, i, 1) Like "[!0-9]" Then Exit Function
+    Next i
+    IsWholeNumber = True
+End Function
+
+' Converts Arabic-Indic digits (U+0660-U+0669) to 0-9.
+Private Function NormalizeDigits(ByVal value As String) As String
+    Dim i As Long, code As Long
+    For i = 1 To Len(value)
+        code = AscW(Mid$(value, i, 1))
+        If code >= &H660 And code <= &H669 Then
+            NormalizeDigits = NormalizeDigits & ChrW(code - &H660 + 48)
+        Else
+            NormalizeDigits = NormalizeDigits & Mid$(value, i, 1)
+        End If
+    Next i
 End Function
 
 Private Function IsArabic() As Boolean

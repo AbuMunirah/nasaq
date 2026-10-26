@@ -19,6 +19,8 @@
 
 ### Features
 
+![The Nasaq tab in PowerPoint](docs/ribbon.png)
+
 Every Nasaq command uses the **last shape you select** as the reference, so you decide which shape the others follow.
 
 | Group | Commands | What they do |
@@ -143,6 +145,8 @@ Every push to `main` builds the add-in and publishes it to GitHub Pages
 **نَسَق** إضافة لبرنامج PowerPoint تضيف علامة تبويب على الشريط لمحاذاة الأشكال ومطابقة أحجامها وتبديل مواضعها بنقرة واحدة. تعمل على PowerPoint في Windows وMac، باللغتين العربية والإنجليزية.
 
 ### المزايا
+
+![علامة التبويب نَسَق في PowerPoint](docs/ribbon.png)
 
 تستخدم جميع أوامر نَسَق **آخر شكل تحدده** مرجعًا، فأنت من يقرر الشكل الذي تتبعه بقية الأشكال.
 

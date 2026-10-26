@@ -45,6 +45,7 @@ Nasaq comes in two editions with the same tab and buttons:
 | **Macros** | Not used: never asks to enable macros | VBA: the installer puts it in a trusted folder, so it normally loads without a prompt |
 | **Internet** | Needed: loads from GitHub Pages | Not needed: works fully offline |
 | **Updates** | Automatic | Run the installer again |
+| **Stays on the ribbon** | With admin deployment: always. With the installers: re-add it for each new presentation (see below) | Yes, loads every time PowerPoint starts |
 | **Arabic labels** | Windows and Mac | Windows (English on Mac) |
 
 **Not sure which PowerPoint you have?** Go to **File → Account → About PowerPoint**.
@@ -71,7 +72,12 @@ If Windows shows "Windows protected your PC", click **More info → Run anyway**
 Then restart PowerPoint and choose **Home → Add-ins → My Add-ins → Developer Add-ins → Nasaq**
 (on Office LTSC 2024: **Insert → My Add-ins**).
 
-**For an organization:** a Microsoft 365 admin can deploy it to everyone instead: upload
+> [!NOTE]
+> PowerPoint treats an add-in installed this way as a test install: it is attached to the presentation you add it to.
+> Presentations you saved with Nasaq keep the tab, but **new presentations, and PowerPoint after a restart, start without it**:
+> add it again from **My Add-ins → Developer Add-ins**. To have Nasaq on the ribbon permanently, use admin deployment (below).
+
+**For an organization (permanent):** a Microsoft 365 admin can deploy it instead, and the tab then appears in every presentation, every time: upload
 [`manifest.xml`](https://abumunirah.github.io/nasaq/manifest.xml) in the [Microsoft 365 admin center](https://admin.microsoft.com)
 under **Settings → Integrated apps → Upload custom apps**. Nothing needs to be installed on users' machines.
 
@@ -172,6 +178,7 @@ Every push to `main` builds the add-in and publishes it to GitHub Pages
 | **وحدات الماكرو** | لا يستخدمها: لا يطلب تمكين وحدات الماكرو أبدًا | VBA: يضعه المثبّت في مجلد موثوق، فيُحمَّل عادةً دون أي تنبيه |
 | **الإنترنت** | مطلوب: يُحمَّل من GitHub Pages | غير مطلوب: يعمل دون اتصال بالكامل |
 | **التحديثات** | تلقائية | شغّل المثبّت مرة أخرى |
+| **البقاء على الشريط** | عند النشر من مسؤول Microsoft 365: دائمًا. عند التثبيت بالمثبّت: أعد إضافته لكل عرض تقديمي جديد (انظر أدناه) | نعم، يُحمَّل في كل مرة يبدأ فيها PowerPoint |
 | **الواجهة العربية** | Windows وMac | Windows (بالإنجليزية على Mac) |
 
 **لست متأكدًا من إصدار PowerPoint لديك؟** انتقل إلى **ملف ← الحساب ← حول PowerPoint**.
@@ -197,7 +204,12 @@ curl -fsSL https://abumunirah.github.io/nasaq/install/install-mac.command | bash
 بعدها أعد تشغيل PowerPoint واختر **الصفحة الرئيسية ← الوظائف الإضافية ← وظائفي الإضافية ← وظائف المطوّر الإضافية ← نَسَق**
 (في Office LTSC 2024: **إدراج ← وظائفي الإضافية**).
 
-**للمؤسسات:** يمكن لمسؤول Microsoft 365 نشره للجميع بدلًا من ذلك، برفع ملف
+> [!NOTE]
+> يعامل PowerPoint الإضافة المثبّتة بهذه الطريقة كتثبيت تجريبي، فترتبط بالعرض التقديمي الذي أضفتها إليه.
+> تحتفظ العروض التي حفظتها مع نَسَق بعلامة التبويب، لكن **العروض الجديدة، وPowerPoint بعد إعادة التشغيل، تبدأ بدونها**:
+> أضفها مجددًا من **وظائفي الإضافية ← وظائف المطوّر الإضافية**. ولإبقاء نَسَق على الشريط بشكل دائم، استخدم النشر من مسؤول Microsoft 365 (أدناه).
+
+**للمؤسسات (بشكل دائم):** يمكن لمسؤول Microsoft 365 نشره بدلًا من ذلك، فتظهر علامة التبويب في كل عرض تقديمي وفي كل مرة، وذلك برفع ملف
 [`manifest.xml`](https://abumunirah.github.io/nasaq/manifest.xml) في [مركز إدارة Microsoft 365](https://admin.microsoft.com)
 عبر **الإعدادات ← التطبيقات المتكاملة ← رفع تطبيقات مخصصة**، دون تثبيت أي شيء على أجهزة المستخدمين.
 

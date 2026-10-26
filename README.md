@@ -21,17 +21,24 @@
 
 ![The Nasaq tab in PowerPoint](docs/ribbon.png)
 
-Every Nasaq command uses the **last shape you select** as the reference, so you decide which shape the others follow.
+Every alignment and sizing command uses the **last shape you select** as the reference, so you decide which shape the others follow.
 
 | Group | Commands | What they do |
 |---|---|---|
-| **Font** | Font, Font Size | PowerPoint's own font controls, kept at hand |
-| **Paragraph** | Text Align ▾, Font Color | Align selected text, or all text in the selected shapes: left, center, right or justify |
+| **Font** | Font, Font Size, Font Color | PowerPoint's own font controls, kept at hand |
+| **Paragraph** | Text Align ▾, Text Direction | Align selected text, or all text in the selected shapes (left, center, right, justify), and switch it between right-to-left and left-to-right |
 | **Shapes** | Insert Shape, Shape Fill | PowerPoint's own shape controls |
+| **Arrange** | Group, Ungroup, Order ▾ | Group shapes, and bring them to the front, forward, backward or to the back |
 | **Align** | Left, Center, Right, Top, Middle, Bottom | Line up the selected shapes with the edge or center of the last selected shape |
 | | Distribute Horizontally / Vertically | PowerPoint's own spacing controls |
 | **Size** | Match Size, Match Width, Match Height | Resize the selected shapes to match the last selected shape |
-| **Position** | Swap | Swap two shapes, center to center |
+| **Position** | Swap, Duplicate | Swap two shapes, center to center; duplicate the selection (see below) |
+| **Comments** | New Comment | Add a comment to the slide |
+
+**Duplicate:** in Nasaq Classic, Duplicate asks how many copies to make and arranges them in a grid with the original
+(for example 8 copies make a 3 × 3 grid). The web edition shows PowerPoint's own Duplicate (one copy), because web add-ins can't copy shapes.
+
+**Small differences between the editions:** in the web edition, Text Direction is two buttons instead of a dropdown, and Order needs PowerPoint for Microsoft 365.
 
 The ribbon labels, tooltips and messages appear in Arabic when Office is set to Arabic, and in English otherwise.
 
@@ -154,17 +161,24 @@ Every push to `main` builds the add-in and publishes it to GitHub Pages
 
 ![علامة التبويب نَسَق في PowerPoint](docs/ribbon.png)
 
-تستخدم جميع أوامر نَسَق **آخر شكل تحدده** مرجعًا، فأنت من يقرر الشكل الذي تتبعه بقية الأشكال.
+تستخدم جميع أوامر المحاذاة والحجم **آخر شكل تحدده** مرجعًا، فأنت من يقرر الشكل الذي تتبعه بقية الأشكال.
 
 | المجموعة | الأوامر | الوظيفة |
 |---|---|---|
-| **الخط** | الخط، حجم الخط | أدوات الخط الأصلية في PowerPoint في متناول يدك |
-| **الفقرة** | محاذاة النص ▾، لون الخط | محاذاة النص المحدد، أو كل النص في الأشكال المحددة: يسار، توسيط، يمين، أو ضبط |
+| **الخط** | الخط، حجم الخط، لون الخط | أدوات الخط الأصلية في PowerPoint في متناول يدك |
+| **الفقرة** | محاذاة النص ▾، اتجاه النص | محاذاة النص المحدد، أو كل النص في الأشكال المحددة (يسار، توسيط، يمين، ضبط)، وتبديل اتجاهه بين اليمين إلى اليسار واليسار إلى اليمين |
 | **الأشكال** | إدراج شكل، تعبئة الشكل | أدوات الأشكال الأصلية في PowerPoint |
+| **تنظيم** | تجميع، فك التجميع، الترتيب ▾ | تجميع الأشكال، وإحضارها إلى الأمام أو للأمام، أو إرسالها للخلف أو إلى الخلف |
 | **المحاذاة** | يسار، توسيط أفقي، يمين، أعلى، توسيط عمودي، أسفل | محاذاة الأشكال المحددة مع حافة آخر شكل محدد أو مركزه |
 | | التوزيع أفقيًا / عموديًا | أدوات التباعد الأصلية في PowerPoint |
 | **الحجم** | مطابقة الحجم، مطابقة العرض، مطابقة الارتفاع | تغيير حجم الأشكال المحددة لتطابق آخر شكل محدد |
-| **الموضع** | تبديل | تبديل موضعي شكلين، من المركز إلى المركز |
+| **الموضع** | تبديل، تكرار | تبديل موضعي شكلين، من المركز إلى المركز؛ وتكرار التحديد (انظر أدناه) |
+| **التعليقات** | تعليق جديد | إضافة تعليق إلى الشريحة |
+
+**التكرار:** في نَسَق الكلاسيكي، يسألك أمر «تكرار» عن عدد النسخ ثم يرتبها في شبكة مع الأصل
+(مثلًا 8 نسخ تكوّن شبكة 3 × 3). أما إصدار الويب فيعرض أمر التكرار الأصلي في PowerPoint (نسخة واحدة)، لأن إضافات الويب لا يمكنها نسخ الأشكال.
+
+**فروق بسيطة بين الإصدارين:** في إصدار الويب، يظهر «اتجاه النص» كزرين بدلًا من قائمة منسدلة، ويتطلب «الترتيب» PowerPoint ضمن Microsoft 365.
 
 تظهر تسميات الشريط والتلميحات والرسائل باللغة العربية عندما تكون لغة Office هي العربية، وبالإنجليزية في غير ذلك.
 

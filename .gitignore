@@ -152,3 +152,6 @@ vite.config.ts.timestamp-*
 dist/
 .DS_Store
 ppam/out/
+# node_modules kept out of iCloud sync (node_modules is a link to node_modules.nosync)
+node_modules
+node_modules.nosync/
